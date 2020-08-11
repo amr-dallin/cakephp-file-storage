@@ -43,7 +43,7 @@ trait StorageTrait
      * @param bool $renewObject
      * @return mixed|\Gaufrette\Filesystem
      */
-    public function getStorageAdapter(string $configName, $renewObject = false)
+    public function getStorageAdapter($configName, $renewObject = false)
     {
         return StorageManager::get($configName, $renewObject);
     }

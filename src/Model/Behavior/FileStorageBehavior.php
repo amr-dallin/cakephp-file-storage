@@ -96,14 +96,14 @@ class FileStorageBehavior extends Behavior
      * @param \Cake\Event\EventInterface $event The beforeSave event that was fired
      * @param \Cake\Datasource\EntityInterface $entity The entity that is going to be saved
      * @param \ArrayObject $options The options for the query
-     * @return void
+     * @return EntityInterface
      */
-    public function beforeSave(EventInterface $event, EntityInterface $entity, ArrayObject $options): void
+    public function beforeSave(EventInterface $event, EntityInterface $entity, ArrayObject $options)
     {
         if (!$this->_isFileUploadPresent($entity)) {
             $event->stopPropagation();
 
-            return;
+            return $entity;
         }
 
         $this->_checkEntityBeforeSave($entity);

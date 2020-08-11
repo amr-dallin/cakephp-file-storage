@@ -109,7 +109,7 @@ class StorageManager
      * @throws \ReflectionException
      * @return mixed filesystem
      */
-    public static function get(string $configName, bool $renewObject = false)
+    public static function get($configName, bool $renewObject = false)
     {
         if (empty($configName) || !is_string($configName)) {
             throw new InvalidArgumentException('StorageManager::get() first arg must be a non empty string!');

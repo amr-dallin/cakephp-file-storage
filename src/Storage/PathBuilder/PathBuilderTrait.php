@@ -30,10 +30,7 @@ trait PathBuilderTrait
      */
     public function createPathBuilder(string $name, array $options = []): PathBuilderInterface
     {
-        $className = App::className($name, 'Storage/PathBuilder', 'PathBuilder');
-        if ($className === null || !class_exists($className)) {
-            $className = App::className('Burzum/FileStorage.' . $name, 'Storage/PathBuilder', 'PathBuilder');
-        }
+        $className = App::className('Burzum/FileStorage.' . $name, 'Storage/PathBuilder', 'PathBuilder');
 
         if ($className === null || !class_exists($className)) {
             throw new RuntimeException(sprintf('Could not find path builder "%s"!', $name));
